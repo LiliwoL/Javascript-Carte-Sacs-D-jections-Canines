@@ -14,7 +14,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 
 // Récupération du tableau des données
-fetch('./DATA/data.json')
+fetch('./DATA/sac_a_dejection_canine.json')
     .then((response) => response.json())
     .then((datas) => {
         // Debug
@@ -40,19 +40,19 @@ fetch('./DATA/data.json')
 
             /* Syntaxe fonction fléchées (arrow function) */
             elementEnCours => {
-                console.log ("Adresse :");
-                console.info (elementEnCours.fields.obs + " " + elementEnCours.fields.adresse);
+                console.log ("Lieu :");
+                console.info (elementEnCours.fields.localisation + " " + elementEnCours.fields.emplacement);
 
                 console.log ("Coordonnées :");
-                console.log("Latitude: " + elementEnCours.fields.geo_point_2d[0]);
-                console.log("Longitude: " + elementEnCours.fields.geo_point_2d[1]);
+                console.log("Latitude: " + elementEnCours.fields.coordinates[0]);
+                console.log("Longitude: " + elementEnCours.fields.coordinates[1]);
 
                 // Ajout du marker sur la carte
                 // doc: https://leafletjs.com/examples/custom-icons/
                 L.marker(
                     [
-                        elementEnCours.fields.geo_point_2d[1], // latitude
-                        elementEnCours.fields.geo_point_2d[0] // longitude
+                        elementEnCours.fields.coordinates[1], // latitude
+                        elementEnCours.fields.coordinates[0] // longitude
                     ]
                 ).addTo(map);
             }
