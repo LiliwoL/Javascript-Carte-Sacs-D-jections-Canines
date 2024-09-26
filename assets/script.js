@@ -40,7 +40,7 @@ datas.forEach(
         console.log ("Lieu :");
         console.info (elementEnCours.fields.localisation + " " + elementEnCours.fields.emplacement);
 
-                console.log ("Coordonnées :");
+                console.log("Coordonnées :");
                 console.log("Latitude: " + elementEnCours.fields.coordinates[0]);
                 console.log("Longitude: " + elementEnCours.fields.coordinates[1]);
 
